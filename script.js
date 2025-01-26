@@ -5,12 +5,12 @@ document.getElementById('getEnergyData').addEventListener('click', function () {
         return;
     }
 
-    const API_KEY = "30e507cafa50d2321e716e407267d396"; // Replace with secure handling
+    const API_KEY = "30e507cafa50d2321e716e407267d396"; // Replace with your own API key
     const PANEL_AREA = 2.0;
     const PANEL_EFFICIENCY = 0.18; // 18%
 
     // Fetch weather data
-    fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`)
         .then(response => response.json())
         .then(data => {
             if (data.cod === 200) {
