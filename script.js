@@ -9,18 +9,17 @@ document.getElementById('getEnergyData').addEventListener('click', function () {
     const PANEL_AREA = 2.0;
     const PANEL_EFFICIENCY = 0.18; // 18%
 
-    // Fetch weather data
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`)
-        .then(response => response.json())
-        .then(data => {
-            if (data.cod === 200) {
-                const temperature = data.main.temp;
-                const humidity = data.main.humidity;
-                const clouds = data.clouds.all;
-
-                // Calculate solar energy output
-                const irradiance = 5.5 * (1 - clouds / 100); // Approximation
-                const energyOutput = irradiance * PANEL_AREA * PANEL_EFFICIENCY;
+  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        // Process data...
+    })
+    .catch(error => console.error("Error fetching weather data:", error));
 
                 // Update UI with results
                 document.getElementById('temperature').textContent = `Temperature: ${temperature}°C`;
