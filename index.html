@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar Energy Estimator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Solar Energy Estimator</h1>
+        <label for="city">Enter your city name:</label>
+        <input type="text" id="city" placeholder="e.g., New York">
+        <button id="getEnergyData">Get Energy Data</button>
+
+        <div id="weatherInfo">
+            <h3>Weather Information:</h3>
+            <p id="temperature"></p>
+            <p id="humidity"></p>
+            <p id="clouds"></p>
+            <p id="irradiance"></p>
+            <p id="energyOutput"></p>
+        </div>
+
+        <div id="charts">
+            <canvas id="barChart"></canvas>
+            <canvas id="scatterChart"></canvas>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
